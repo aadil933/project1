@@ -139,23 +139,5 @@
       <button type="submit">Submit application</button>
       <button type="reset">Reset</button>
     </p>
-
-
-  <script>
-    // Enforce "at least one skill" without changing the checkbox UI.
-    (function () {
-      const skills = Array.from(document.querySelectorAll('input.skill[type="checkbox"]'));
-      if (!skills.length) return;
-
-      function updateRequired() {
-        const anyChecked = skills.some(cb => cb.checked);
-        // If none checked, require the first checkbox; otherwise, none required.
-        skills.forEach((cb, idx) => cb.required = !anyChecked && idx === 0);
-      }
-
-      skills.forEach(cb => cb.addEventListener('change', updateRequired));
-      updateRequired(); // initialize on load
-    })();
-  </script>
 </body>
 </html>
